@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_padding_default">16dp</dimen>
+    <dimen name="recycler_padding_bottom">32dp</dimen>
+    <dimen name="common_padding_min">8dp</dimen>
+    <dimen name="common_padding_micro">4dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fragment_horizontal_margin">16dp</dimen>
+    <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="common_padding_large">32dp</dimen>
+    <dimen name="common_padding_xlarge">64dp</dimen>
+    <dimen name="common_padding_xxlarge">96dp</dimen>
+</resources>

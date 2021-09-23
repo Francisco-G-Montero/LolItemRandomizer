@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs'
+}
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.frommetoyou.lolitemrandomizer"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 6
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures{
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            //shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+ext{
+    retrofitVersion = '2.6.4'
+    daggerVersion='2.30.1'
+    nav_version='2.3.2'
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    //nav graph
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'com.google.firebase:firebase-database:19.6.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //JUnit y Expreso tests
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Interacción con APIs Rest
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
+    //Parseo de JSON
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Logging HTTP
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.10'
+
+    //dagger II, inyección de dependencias
+    api "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    //rxjava y rxandroid
+    implementation "io.reactivex.rxjava2:rxjava:2.2.6"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    //google sign in
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    //skeleton for recyclerView's loading items
+    implementation 'com.ethanhua:skeleton:1.1.2'
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
+
+    //particles
+    implementation 'nl.dionsegijn:konfetti:1.3.2'
+
+}

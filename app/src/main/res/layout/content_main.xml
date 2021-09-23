@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lol_background2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+ <!--   <me.ibrahimsn.particle.ParticleView
+        android:id="@+id/particle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_padding_large"
+        android:layout_gravity="bottom"
+        app:particleCount="7"
+        app:particleMinRadius="1"
+        app:particleMaxRadius="4"
+        android:translationZ="-1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:particleColor="@android:color/holo_orange_dark"
+        app:particleLinesEnabled="false" />-->
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <fragment
+        android:id="@+id/nav_host_fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        android:translationZ="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:navGraph="@navigation/nav_graph"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment2">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.randomizer.view.MainFragment"
+        android:label="¡Randomiza y juega!"
+        tools:layout="@layout/fragment_main" >
+        <argument
+            android:name="playingAsHost"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_mainFragment_to_joinGameFragment"
+            app:destination="@id/joinGameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_finishGameFragment"
+            app:destination="@id/finishGameFragment" />
+        <argument
+            android:name="playingSolo"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.setup.view.SetupFragment"
+        android:label="Preparación de batalla"
+        tools:layout="@layout/fragment_setup" >
+        <action
+            android:id="@+id/action_setupFragment_to_shareLinkFragment"
+            app:destination="@id/shareLinkFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_setupFragment_to_createOrJoinFragment"
+            app:destination="@id/createOrJoinFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_setupFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="playingSolo"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.frommetoyou.lolitemrandomizer.login.view.LoginFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_createOrJoinFragment"
+            app:destination="@id/createOrJoinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareLinkFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.sharelink.ShareLinkFragment"
+        android:label="Compartir código"
+        tools:layout="@layout/fragment_share_link" >
+        <action
+            android:id="@+id/action_shareLinkFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_shareLinkFragment_to_setupFragment"
+            app:destination="@id/setupFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+        <argument
+            android:name="mapSelected"
+            app:argType="string"/>
+        <argument
+            android:name="itemPool"
+            app:argType="string" />
+        <argument
+            android:name="winDescription"
+            app:argType="string" />
+        <argument
+            android:name="playingSolo"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/createOrJoinFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.setup.view.CreateOrJoinFragment"
+        android:label="Crear o Ingresar"
+        tools:layout="@layout/fragment_create_or_join" >
+        <action
+            android:id="@+id/action_createOrJoinFragment_to_setupFragment"
+            app:destination="@id/setupFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_createOrJoinFragment_to_joinGameFragment"
+            app:destination="@id/joinGameFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_createOrJoinFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinGameFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.joingame.view.JoinGameFragment"
+        android:label="Ingresar a una partida"
+        tools:layout="@layout/fragment_join_game" >
+        <action
+            android:id="@+id/action_joinGameFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_joinGameFragment_to_createOrJoinFragment"
+            app:destination="@id/createOrJoinFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishGameFragment"
+        android:name="com.frommetoyou.lolitemrandomizer.randomizer.view.FinishGameFragment"
+        android:label="Escrachá a tu amigo"
+        tools:layout="@layout/fragment_finish_game" >
+        <action
+            android:id="@+id/action_finishGameFragment_to_createOrJoinFragment"
+            app:destination="@id/createOrJoinFragment" />
+        <argument
+            android:name="winDescription"
+            app:argType="string" />
+    </fragment>
+</navigation>
